@@ -1,0 +1,44 @@
+img {
+    max-width:100%;
+    max-height:100%;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+@-webkit-keyframes rotate {   
+to {
+        -webkit-transform: rotate(1turn);
+    }
+}
+
+@-moz-keyframes rotate {   
+to {
+        -moz-transform: rotate(1turn);
+    }
+}
+
+@keyframes rotate {   
+to {
+        transform: rotate(1turn);
+    }
+}
+
+.img-wrapper {
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-play-state: paused;
+    -moz-animation-name: rotate;
+    -moz-animation-duration: 5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-play-state: paused;
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+}
