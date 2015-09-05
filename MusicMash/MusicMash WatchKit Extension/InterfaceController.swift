@@ -16,6 +16,13 @@ let domain = "45.79.167.126"
 
 class InterfaceController: WKInterfaceController {
 
+    func BoolToInstruction(b: Bool) -> String{
+        if (b) {
+            return "pause"
+        } else {
+            return "play"
+        }
+    }
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -33,10 +40,11 @@ class InterfaceController: WKInterfaceController {
     }
 
     @IBAction func trigger() {
-        let urlPath = String(format: "http://%s/trigger/%s/%d", arguments: [domain, token, playing])
-        var url: NSURL = NSURL(string: urlPath)!
-        var request : NSURLRequest = NSURLRequest(URL: url)
-        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error:nil)!
+        let urlPath = String("http://"+domain+"/trigger/"+token+"/"+BoolToInstruction(playing))
+        let url: NSURL = NSURL(string: urlPath)!
+        let request : NSURLRequest = NSURLRequest(URL: url)
+        var response: NSURLResponse?
+        var dataVal: NSData =  try! NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
         playing = !playing
     }
 }
