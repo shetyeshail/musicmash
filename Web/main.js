@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log("ready");
     var cover_height = $(".splash-container").height() / 2;
     console.log("height:" + cover_height);
+    $(".img-wrapper").height($(".img-wrapper").width());
     $("#blank").height(cover_height/6);
     $("#track1_button").click(function () {
         $("#track1").toggle()
